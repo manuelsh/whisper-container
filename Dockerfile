@@ -20,4 +20,4 @@ RUN python3 download.py
 ADD main.py .
 
 # Run the app
-# CMD python3 -u main.py
+CMD python3 -u main.py

@@ -34,6 +34,8 @@ def stores_dict_in_json_file(dictionary, file_name):
         f.write(result_json)
 
 if __name__ == "__main__":
+    print('Starting transcribing...'')
+    # Gets S3 client
     s3 = get_s3_client(S3_CREDENTIALS_PATH)
     
     # Download file from the bucket
@@ -41,19 +43,24 @@ if __name__ == "__main__":
     s3.download_file(S3_BUCKET, 
                      file_name, 
                      file_name)
-
+    print('Downloaded file from S3: {}'.format(file_name))
+    
     # Transcribes file
     result = transcribe(WHISPER_MODEL,
                         file_name,
                         os.environ['LANGUAGE'],
                         os.environ['TASK'])
+    print('Transcribed file: {}'.format(file_name))
 
     # Stored dict in json file 
     json_file_name = file_name+'_result.json'
     stores_dict_in_json_file(result, json_file_name)
+    print('Stored result in json file: {}'.format(json_file_name))
 
     # Uploads json file to S3
     s3.upload_file(json_file_name,
                    S3_BUCKET,
                    json_file_name)
+    print('Uploaded json file to S3: {}'.format(json_file_name))
+
 
