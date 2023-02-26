@@ -34,7 +34,7 @@ def stores_dict_in_json_file(dictionary, file_name):
         f.write(result_json)
 
 if __name__ == "__main__":
-    print('Starting transcribing...'')
+    print('Starting transcribing...')
     # Gets S3 client
     s3 = get_s3_client(S3_CREDENTIALS_PATH)
     

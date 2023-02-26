@@ -4,11 +4,25 @@ The following creates a container that takes an audio file from S3, runs whisper
 
 It's intended to be used in AWS Batch service.
 
+## Pushing it to docker hub
+
+For this image to run it needs to be pushed to docker hub. For that you need to login first using:
+
+```bash
+docker login
+```
+
+Then you can push the image using:
+
+```bash
+docker push manuelsh/platic-whisper:latest
+```
+
 ## File types accepted
 
 The container takes `.flac` files from S3 with 16000 Hz sample rate.
 
-## Usage
+## Variables
 
 The docker uses the following environment or config variables:
 
