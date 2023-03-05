@@ -32,10 +32,10 @@ In the `config.py` file:
 - `S3_CREDENTIALS_PATH`: http path to S3 credentials from ec2 AIM role.
 - `S3_BUCKET`: S3 bucket where input and output files are stored.
 
-Also, one must run the container with the following :
+Also, one must run the container with the following environment variables:
 
 - `FILE_NAME`: name of the file to transcribe. The output file will have the same name with a `_result.json` suffix.
-- `LANGUAGE`: the language of the audio file. To autodetect the language, set to `None`.
+- `LANGUAGE`: the language of the audio file. To autodetect the language, set to `auto`.
 - `TASK`: the task to run. Set to `transcribe` to transcribe the audio file or `translate` to translate the transcription to English.
 
 ## Running the container
